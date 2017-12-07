@@ -1,0 +1,9 @@
+from yourproject.settings import SECRET_KEY, CHANNEL_LAYERS, DEBUG, ALLOWED_HOSTS, MIDDLEWARE_CLASSES, \
+                          TEMPLATES, DATABASES, LANGUAGE_CODE, TIME_ZONE, USE_I18N, USE_L10N, STATIC_URL
+
+# You can make this the smallest list required for running your async functions
+INSTALLED_APPS = (
+    'django.contrib.sites',
+)
+
+CHANNEL_LAYERS['default']["ROUTING"] = "channels_async.server.routing.channel_routing"
