@@ -2,17 +2,13 @@ from __future__ import unicode_literals
 
 from django.http import HttpResponse
 from django.conf import settings
-from channels.handler import AsgiRequest
+from channels.handler import AsgiRequest, HttpResponseLater
 from channels.message import Message
 from channels import Channel
 import requests
 import six
 
 from channels_async import ASYNC_CHANNEL
-
-
-class HttpResponseLater(HttpResponse):
-    status_code = 113
 
 
 class SyncClient(object):
