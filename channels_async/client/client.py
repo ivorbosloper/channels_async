@@ -12,7 +12,7 @@ from channels_async import ASYNC_CHANNEL
 
 
 class HttpResponseLater(HttpResponse):
-    status_code = 100
+    status_code = 113
 
 
 class SyncClient(object):

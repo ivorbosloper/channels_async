@@ -48,6 +48,7 @@ class ChannelsConsumer(object):
                     operation = raw_message.pop('operation')
                     if operation not in OPERATION_TYPES:
                         logger.error("Operation {} not supported".format(operation))
+                        continue
                     reply_channel = raw_message.pop('reply_channel')
                     args = raw_message.pop('args', [])
                     logger.debug("Handle {} {} {}".format(operation, args, raw_message))

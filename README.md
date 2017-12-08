@@ -43,7 +43,8 @@ neccesary if your Django project runs in python3 by itself.
 # Setup new virtualenv for the server part
 
 pip3 install virtualenv
-python3 `which virtualenv` —python=`which python3` channels_async
+#python3 `which virtualenv` -—python=`which python3` channels_async
+python3 `which virtualenv` -p `which python3` channels_async
 
 pip install Django==1.11.* channels==1.1.5
 pip install psycopg2 asgi_redis==1.4.2  # you might need this based on your settings
@@ -75,6 +76,9 @@ def get_some_url(request):
     user = request.user.username
     return client.request(request, url='https://github.com/{}'.format(user))
 ```
+
+The client will put the request in the channel `request.async` , make sure your Channels Async
+Server runs to fetch the request and post it back in the reply-channel.
 
 ## Low level usage with Channels Messages
 
